@@ -1,0 +1,237 @@
+@use "./util";
+@use "./queries";
+
+body {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 300;
+    color: util.$colorTxtMain;
+    font-family: util.$fontFamily;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    @include util.boxy(100%, 20px, 50px, flex);
+    background-color: util.$bgColor;
+    justify-content: space-between;
+    align-items: center;
+
+    @include queries.respond("medium") {
+        //media query 51.25em
+        padding: 15px;
+    }
+
+    &__logo {
+        width: 20%;
+
+        @include queries.respond("medium2") {
+            //media query 750px
+            width: 25%;
+        }
+
+        @include queries.respond("small") {
+            //media query 550px
+            width: 30%;
+        }
+
+        @include queries.respond("small2") {
+            //media query 480px
+            width: 45%;
+        }
+    }
+
+    &__icon {
+        width: 35px;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    &__icon-container {
+        @include queries.respond("medium") {
+            width: 30px;
+        }
+    }
+}
+
+.banner {
+    @include util.boxy(100%, 60px, 0px, block);
+    @extend %txtCntr;
+    background-image: url("../img/background-banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: util.$colorTxtSecondary;
+
+    @include queries.respond("small2") {
+        //media query 480px
+        padding: 30px 0;
+    }
+
+    &__title {
+        width: 100%;
+        font-weight: 600;
+        font-size: 30px;
+        margin: 10px 0;
+
+        @include queries.respond("small") {
+            //media query 550px
+            font-size: 25px;
+            margin: 7px;
+        }
+
+        @include queries.respond("small2") {
+            //media query 480px
+            font-size: 19px;
+        }
+    }
+
+    &__txt {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 25px;
+        opacity: 0.7;
+
+        @include queries.respond("small2") {
+            //media query 480px
+            font-size: 16px;
+            opacity: 0.8;
+        }
+    }
+}
+
+.products {
+    @include util.boxy(80%, 20px, 20px, grid);
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    @include queries.respond("medium") {
+        //Media Query (51.25em)
+        @include util.gridProducts(repeat(auto-fit, minmax(200px, 1fr)));
+    }
+
+    @include queries.respond("small2") {
+        //media query 480px
+        @include util.gridProducts(1fr);
+        padding: 10px;
+    }
+
+    &__card {
+        cursor: pointer;
+        @extend %txtCntr;
+    }
+
+    &__img {
+        width: 200px;
+        margin: 15px;
+
+        @include queries.respond("medium") {
+            //media query 51.25em
+            width: 150px;
+        }
+
+        @include queries.respond("small2") {
+            //media query 480px
+            width: 100%;
+            max-width: 200px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 17px;
+        margin: 5px;
+
+        @include queries.respond("small2") {
+            padding: 0 10px;
+        }
+    }
+
+    &__txt {
+        font-size: 15px;
+
+        @include queries.respond("small2") {
+            padding: 0 10px;
+        }
+    }
+}
+
+.cart {
+    //Esto es para el carrito de compras que se encuentra escondido hacia la izquierda
+    @include util.boxy(500px, 25px, 25px, block);
+    background-color: util.$bgColorSecondary;
+    height: 100%;
+    position: fixed;
+    right: -100%;
+    top: 100px;
+    box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
+
+    @include queries.respond("medium") {
+        //media query 51.25em
+        width: 400px;
+        top: 80px;
+    }
+
+    @include queries.respond("small2") {
+        //media query 480px
+        width: 100%;
+        box-shadow: none;
+    }
+
+    &__title {
+        @include util.boxy(100%, 25px, 0px, block);
+        @extend %txtCntr;
+        font-size: 20px;
+        font-weight: 600;
+
+        @include queries.respond("small2") {
+            //media query 480px
+            padding: 15px 0;
+        }
+    }
+
+    &__item {
+        @include util.boxy(100%, 15px, 15px, flex);
+        border-bottom: 1px solid util.$borderClr;
+        justify-content: space-between;
+        align-items: center;
+
+        @include queries.respond("small2") {
+            //media query 480px
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    }
+
+    &__img {
+        width: 60px;
+
+        @include queries.respond("small2") {
+            width: 100px;
+        }
+    }
+
+    &__txt {
+        @include queries.respond("small2") {
+            margin: 0;
+        }
+    }
+
+    &__txt--price {
+        font-weight: 500;
+
+        @include queries.respond("small2") {
+            margin: 0;
+        }
+    }
+
+    &__icon-container {
+        width: 25px;
+        cursor: pointer;
+    }
+
+    &__icon-delete {
+        width: 100%;
+    }
+}

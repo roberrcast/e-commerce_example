@@ -1,0 +1,24 @@
+// Variables
+$fontFamily: "Lexend", Arial, Helvetica, sans-serif;
+$bgColor: #000;
+$bgColorSecondary: #fff;
+$colorTxtMain: #999;
+$colorTxtSecondary: #fff;
+$borderClr: #333;
+$mainWidth: 100%;
+
+@mixin boxy($width, $padd1, $padd2, $display) {
+    // Hay 4 bloques HTML que comparten estas tres propiedades: 'width', 'padding' y 'box-sizing'
+    width: $width;
+    padding: $padd1 $padd2;
+    display: $display;
+    box-sizing: border-box;
+}
+
+@mixin gridProducts($gridColumns) {
+    grid-template-columns: $gridColumns;
+}
+
+%txtCntr {
+    text-align: center;
+}
