@@ -7,6 +7,12 @@
         }
     }
 
+    @if ($breakpoint == "medium1") {
+        @media (max-width: 955px) {
+            @content;
+        }
+    }
+
     @if ($breakpoint == "medium2") {
         @media (max-width: 750px) {
             @content;
