@@ -1,0 +1,116 @@
+// Variables
+$fontFamily: "Lexend", Arial, Helvetica, sans-serif;
+$bgColor: #000;
+$bgColorSecondary: #fff;
+$colorTxtMain: #5d6675; //Change made from #999
+$colorTxtSecondary: #1f1f1f; //Change made from #fff
+$colorTxtHover: #8b95a6; //Var added
+$borderClr: #333;
+$mainWidth: 100%;
+$borderColor: #c3c6c7f2;
+
+@mixin boxy($width, $padd1, $padd2, $display) {
+    width: $width;
+    padding: $padd1 $padd2;
+    display: $display;
+    box-sizing: border-box;
+}
+
+@mixin gridProducts($gridColumns) {
+    grid-template-columns: $gridColumns;
+}
+
+%txtCntr {
+    text-align: center;
+}
+
+//Added mixin
+@mixin cardHover(
+    $element1,
+    $element2,
+    $element3,
+    $hoverColor: $colorTxtHover,
+    $scale: 1.05,
+    $transitionDuration: 0.2s,
+    $transitionTiming: ease-out
+) {
+    #{$element1} {
+        transition: transform $transitionDuration $transitionTiming;
+    }
+
+    #{$element2},
+    #{$element3} {
+        transition: color $transitionDuration $transitionTiming;
+    }
+
+    @media (hover: hover) {
+        #{$element1}:hover {
+            transform: scale($scale);
+            cursor: pointer;
+
+            #{$element2},
+            #{$element3} {
+                color: $hoverColor;
+            }
+        }
+    }
+}
+
+@mixin reset($element1, $element2, $element3, $element4) {
+    #{$element1},
+    #{$element2},
+    #{$element3},
+    #{$element4} {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@mixin btn {
+    width: 10.938rem;
+    color: $bgColorSecondary;
+    background-color: $bgColor;
+    border: 1px solid $bgColor;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    transition: all 0.3s ease-out;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $bgColorSecondary;
+            color: $colorTxtMain;
+            border: 1px solid $bgColor;
+            cursor: pointer;
+        }
+    }
+}
+
+@mixin borders {
+    border-top: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
+}
+
+@mixin hoverLinkUnderline {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        width: 0;
+        height: 3.5px;
+        border-radius: 8px;
+        background-color: $colorTxtMain;
+        transition: width 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    @media (hover: hover) {
+        &:hover::after {
+            width: 100%;
+        }
+    }
+}

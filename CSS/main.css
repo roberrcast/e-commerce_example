@@ -1,0 +1,356 @@
+.banner, .products__card, .cart__title {
+  text-align: center;
+}
+
+body {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  color: #5d6675;
+  font-family: "Lexend", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #000;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 51.25em) {
+  .header {
+    padding: 15px;
+  }
+}
+.header__logo {
+  width: 20%;
+}
+@media (max-width: 750px) {
+  .header__logo {
+    width: 25%;
+  }
+}
+@media (max-width: 550px) {
+  .header__logo {
+    width: 30%;
+  }
+}
+@media (max-width: 480px) {
+  .header__logo {
+    width: 45%;
+  }
+}
+.header__icon {
+  width: 35px;
+  cursor: pointer;
+  display: inline-block;
+}
+@media (max-width: 51.25em) {
+  .header__icon-container {
+    width: 30px;
+  }
+}
+
+.banner {
+  width: 100%;
+  padding: 60px 0px;
+  display: block;
+  box-sizing: border-box;
+  background-image: url("../img/bm-banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #5d6675;
+  background-position: center -200px;
+  background-attachment: fixed;
+}
+@media (max-width: 480px) {
+  .banner {
+    padding: 30px 0;
+  }
+}
+.banner__title {
+  width: 100%;
+  font-weight: 600;
+  font-size: 30px;
+  margin: 10px 0;
+  color: #1f1f1f;
+}
+@media (max-width: 550px) {
+  .banner__title {
+    font-size: 25px;
+    margin: 7px;
+  }
+}
+@media (max-width: 480px) {
+  .banner__title {
+    font-size: 19px;
+  }
+}
+.banner__txt {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 25px;
+  opacity: 0.7;
+  color: #1f1f1f;
+}
+@media (max-width: 480px) {
+  .banner__txt {
+    font-size: 16px;
+    opacity: 0.8;
+  }
+}
+
+.products {
+  width: 80%;
+  padding: 20px 20px;
+  display: grid;
+  box-sizing: border-box;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.products .products__card {
+  transition: transform 0.2s ease-out;
+}
+.products h3,
+.products p {
+  transition: color 0.2s ease-out;
+}
+@media (hover: hover) {
+  .products .products__card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  .products .products__card:hover h3,
+  .products .products__card:hover p {
+    color: #8b95a6;
+  }
+}
+@media (max-width: 51.25em) {
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .products {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+}
+.products__img {
+  width: 200px;
+  margin: 15px;
+}
+@media (max-width: 51.25em) {
+  .products__img {
+    width: 150px;
+  }
+}
+@media (max-width: 480px) {
+  .products__img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
+}
+.products__title {
+  font-weight: 500;
+  font-size: 17px;
+  margin: 5px;
+}
+@media (max-width: 480px) {
+  .products__title {
+    padding: 0 10px;
+  }
+}
+.products__txt {
+  font-size: 15px;
+}
+@media (max-width: 480px) {
+  .products__txt {
+    padding: 0 10px;
+  }
+}
+
+.cart {
+  width: 500px;
+  padding: 25px 25px;
+  display: block;
+  box-sizing: border-box;
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  right: -100%;
+  top: 100px;
+  box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 51.25em) {
+  .cart {
+    width: 400px;
+    top: 80px;
+  }
+}
+@media (max-width: 480px) {
+  .cart {
+    width: 100%;
+    box-shadow: none;
+  }
+}
+.cart__title {
+  width: 100%;
+  padding: 25px 0px;
+  display: block;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 600;
+}
+@media (max-width: 480px) {
+  .cart__title {
+    padding: 15px 0;
+  }
+}
+.cart__item {
+  width: 100%;
+  padding: 15px 15px;
+  display: flex;
+  box-sizing: border-box;
+  border-bottom: 1px solid #333;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .cart__item {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+.cart__img {
+  width: 60px;
+}
+@media (max-width: 480px) {
+  .cart__img {
+    width: 100px;
+  }
+}
+@media (max-width: 480px) {
+  .cart__txt {
+    margin: 0;
+  }
+}
+.cart__txt--price {
+  font-weight: 500;
+}
+@media (max-width: 480px) {
+  .cart__txt--price {
+    margin: 0;
+  }
+}
+.cart__icon-container {
+  width: 25px;
+  cursor: pointer;
+}
+.cart__icon-delete {
+  width: 100%;
+}
+
+.footer {
+  width: 80%;
+  padding: 20px 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.footer__inner {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  gap: 3rem;
+  margin: 2rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(195, 198, 199, 0.9490196078);
+  border-bottom: 1px solid rgba(195, 198, 199, 0.9490196078);
+  flex-wrap: wrap;
+}
+@media (max-width: 955px) {
+  .footer__inner {
+    gap: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .footer__inner {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+.footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.footer__column h3,
+.footer__column p,
+.footer__column .footer__link,
+.footer__column .footer__list {
+  margin: 0;
+  padding: 0;
+}
+.footer__btn {
+  width: 10.938rem;
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem;
+  transition: all 0.3s ease-out;
+}
+@media (hover: hover) {
+  .footer__btn:hover {
+    background-color: #fff;
+    color: #5d6675;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+}
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer__media {
+  color: #5d6675;
+}
+.footer__link {
+  text-decoration: none;
+  color: #5d6675;
+  position: relative;
+  display: inline-block;
+}
+.footer__link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 3.5px;
+  border-radius: 8px;
+  background-color: #5d6675;
+  transition: width 0.3s ease;
+  transform: translateX(-50%);
+}
+@media (hover: hover) {
+  .footer__link:hover::after {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
