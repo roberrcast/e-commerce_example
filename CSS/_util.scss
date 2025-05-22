@@ -114,3 +114,15 @@ $borderColor: #c3c6c7f2;
         }
     }
 }
+
+@mixin hoverButton($bg, $color) {
+    @media (hover: hover) {
+        &:hover {
+            cursor: pointer;
+            background-color: $bg;
+            color: $color;
+            font-weight: 500;
+            padding: 10px;
+        }
+    }
+}

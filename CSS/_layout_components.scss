@@ -52,6 +52,16 @@ body {
             width: 30px;
         }
     }
+
+    &__menu {
+        @include util.boxy(500px, 25px, 25px, block);
+        background-color: util.$bgColorSecondary;
+        height: 100%;
+        position: fixed;
+        left: -100%;
+        top: 100px;
+        box-shadow: 19px -1px 22px -15px rgba(0, 0, 0, 0.3);
+    }
 }
 
 .banner {
@@ -143,9 +153,15 @@ body {
     }
 
     &__title {
+        font: util.$fontFamily;
         font-weight: 500;
         font-size: 17px;
         margin: 5px;
+        display: -webkit-box; // Estas líneas "webkit" son para que el texto se mantenga en una línea
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         @include queries.respond("small2") {
             padding: 0 10px;
@@ -159,6 +175,15 @@ body {
             padding: 0 10px;
         }
     }
+
+    &__button {
+        background-color: util.$bgColorSecondary;
+        border: 2px solid util.$bgColor;
+        color: util.$bgColor;
+        padding: 8px;
+        transition: all 0.3s ease-out;
+        @include util.hoverButton(util.$bgColor, util.$bgColorSecondary);
+    }
 }
 
 .cart {
@@ -169,7 +194,7 @@ body {
     position: fixed;
     right: -100%;
     top: 100px;
-    box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
+    box-shadow: 19px -1px 22px -15px rgba(0, 0, 0, 0.3);
 
     @include queries.respond("medium") {
         //media query 51.25em

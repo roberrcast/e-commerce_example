@@ -54,6 +54,18 @@ body {
     width: 30px;
   }
 }
+.header__menu {
+  width: 500px;
+  padding: 25px 25px;
+  display: block;
+  box-sizing: border-box;
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  left: -100%;
+  top: 100px;
+  box-shadow: 19px -1px 22px -15px rgba(0, 0, 0, 0.3);
+}
 
 .banner {
   width: 100%;
@@ -157,9 +169,15 @@ body {
   }
 }
 .products__title {
+  font: "Lexend", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 17px;
   margin: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (max-width: 480px) {
   .products__title {
@@ -174,6 +192,22 @@ body {
     padding: 0 10px;
   }
 }
+.products__button {
+  background-color: #fff;
+  border: 2px solid #000;
+  color: #000;
+  padding: 8px;
+  transition: all 0.3s ease-out;
+}
+@media (hover: hover) {
+  .products__button:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px;
+  }
+}
 
 .cart {
   width: 500px;
@@ -185,7 +219,7 @@ body {
   position: fixed;
   right: -100%;
   top: 100px;
-  box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
+  box-shadow: 19px -1px 22px -15px rgba(0, 0, 0, 0.3);
 }
 @media (max-width: 51.25em) {
   .cart {
