@@ -86,26 +86,32 @@ $borderColor: #c3c6c7f2;
     }
 }
 
+@mixin boxShadow($x, $y, $blur, $spread) {
+    box-shadow: $x $y $blur $spread rgba(0, 0, 0, 0.3);
+}
+
 @mixin borders {
     border-top: 1px solid $borderColor;
     border-bottom: 1px solid $borderColor;
 }
 
-@mixin hoverLinkUnderline {
+@mixin hoverLinkUnderline($bottom, $left, $translate) {
     position: relative;
     display: inline-block;
 
     &::after {
         content: "";
         position: absolute;
-        bottom: -3px;
-        left: 50%;
+        bottom: $bottom;
+        left: $left;
         width: 0;
         height: 3.5px;
         border-radius: 8px;
         background-color: $colorTxtMain;
         transition: width 0.3s ease;
-        transform: translateX(-50%);
+        @if $translate != null and $translate != false and $translate != "" {
+            transform: translateX($translate);
+        }
     }
 
     @media (hover: hover) {
@@ -115,14 +121,14 @@ $borderColor: #c3c6c7f2;
     }
 }
 
-@mixin hoverButton($bg, $color) {
+@mixin hoverButton($bg, $color, $borderColor) {
     @media (hover: hover) {
         &:hover {
             cursor: pointer;
             background-color: $bg;
+            border: 1px solid $borderColor;
             color: $color;
             font-weight: 500;
-            padding: 10px;
         }
     }
 }

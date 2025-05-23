@@ -58,9 +58,43 @@ body {
         background-color: util.$bgColorSecondary;
         height: 100%;
         position: fixed;
-        left: -100%;
+        left: 0;
         top: 100px;
-        box-shadow: 19px -1px 22px -15px rgba(0, 0, 0, 0.3);
+        @include util.boxShadow(19px, -1px, 22px, -15px);
+        z-index: 1;
+    }
+
+    &__util-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__close {
+        width: 30px;
+    }
+
+    &__svg {
+        fill: util.$colorTxtMain;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    &__listItem {
+        font-size: 1.1rem;
+
+        a {
+            text-decoration: none;
+            color: util.$colorTxtMain;
+            margin-bottom: 8px;
+            @include util.hoverLinkUnderline(-5px, 0%, null);
+        }
     }
 }
 
@@ -178,11 +212,15 @@ body {
 
     &__button {
         background-color: util.$bgColorSecondary;
-        border: 2px solid util.$bgColor;
-        color: util.$bgColor;
+        border: 2px solid util.$colorTxtMain;
+        color: util.$colorTxtMain;
         padding: 8px;
         transition: all 0.3s ease-out;
-        @include util.hoverButton(util.$bgColor, util.$bgColorSecondary);
+        @include util.hoverButton(
+            util.$bgColor,
+            util.$bgColorSecondary,
+            util.$bgColor
+        );
     }
 }
 
@@ -194,7 +232,8 @@ body {
     position: fixed;
     right: -100%;
     top: 100px;
-    box-shadow: 19px -1px 22px -15px rgba(0, 0, 0, 0.3);
+    @include util.boxShadow(-19px, -1px, 22px, -15px);
+    z-index: 1;
 
     @include queries.respond("medium") {
         //media query 51.25em
@@ -323,6 +362,6 @@ body {
     &__link {
         text-decoration: none;
         color: util.$colorTxtMain;
-        @include util.hoverLinkUnderline;
+        @include util.hoverLinkUnderline(-3px, 50%, -50%);
     }
 }
