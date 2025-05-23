@@ -58,7 +58,7 @@ body {
         background-color: util.$bgColorSecondary;
         height: 100%;
         position: fixed;
-        left: 0;
+        left: -100%;
         top: 100px;
         @include util.boxShadow(19px, -1px, 22px, -15px);
         z-index: 1;
@@ -247,11 +247,23 @@ body {
         box-shadow: none;
     }
 
+    &__util {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__close {
+        width: 30px;
+    }
+
+    &__svg {
+        fill: util.$colorTxtMain;
+    }
+
     &__title {
-        @include util.boxy(100%, 25px, 0px, block);
-        @extend %txtCntr;
-        font-size: 20px;
         font-weight: 600;
+        box-sizing: border-box;
 
         @include queries.respond("small2") {
             //media query 480px
