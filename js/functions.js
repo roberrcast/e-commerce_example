@@ -1,6 +1,8 @@
-const productsButtons = document.querySelectorAll(".products__button");
+const menu = document.querySelector(".header__menu");
 
 const cart = document.querySelector(".cart");
+
+const productsButtons = document.querySelectorAll(".products__button");
 
 const cartBuy = document.querySelector(".cart__button-container");
 
@@ -62,4 +64,28 @@ cart.addEventListener("click", (event) => {
             cartItem.remove();
         }
     }
+});
+
+const cartIcon = document.querySelector(".header__cart");
+
+const closeCart = document.querySelector(".cart__close");
+
+cartIcon.addEventListener("click", () => {
+    cart.classList.toggle("show");
+});
+
+closeCart.addEventListener("click", () => {
+    cart.classList.remove("show");
+});
+
+const menuIcon = document.querySelector(".menu__button");
+
+const closeMenu = document.querySelector(".header__close");
+
+menuIcon.addEventListener("click", () => {
+    menu.classList.toggle("show");
+});
+
+closeMenu.addEventListener("click", () => {
+    menu.classList.remove("show");
 });

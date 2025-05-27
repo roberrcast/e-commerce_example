@@ -62,6 +62,11 @@ body {
         top: 100px;
         @include util.boxShadow(19px, -1px, 22px, -15px);
         z-index: 1;
+        transition: all 0.25s ease;
+
+        &.show {
+            left: 0;
+        }
     }
 
     &__util-container {
@@ -72,6 +77,11 @@ body {
 
     &__close {
         width: 30px;
+        @media (hover: hover) {
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 
     &__svg {
@@ -235,10 +245,15 @@ body {
     background-color: util.$bgColorSecondary;
     height: 650px; //650px seems to work
     position: fixed;
-    right: 0;
+    right: -100%;
     top: 100px;
     @include util.boxShadow(-19px, -1px, 22px, -15px);
     z-index: 1;
+    transition: all 0.25s ease;
+
+    &.show {
+        right: 0;
+    }
 
     @include queries.respond("medium") {
         //media query 51.25em
@@ -260,6 +275,12 @@ body {
 
     &__close {
         width: 30px;
+
+        @media (hover: hover) {
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 
     &__svg {

@@ -66,6 +66,10 @@ body {
   top: 100px;
   box-shadow: 19px -1px 22px -15px rgba(0, 0, 0, 0.3);
   z-index: 1;
+  transition: all 0.25s ease;
+}
+.header__menu.show {
+  left: 0;
 }
 .header__util-container {
   display: flex;
@@ -74,6 +78,11 @@ body {
 }
 .header__close {
   width: 30px;
+}
+@media (hover: hover) {
+  .header__close:hover {
+    cursor: pointer;
+  }
 }
 .header__svg {
   fill: #5d6675;
@@ -264,10 +273,14 @@ body {
   background-color: #fff;
   height: 650px;
   position: fixed;
-  right: 0;
+  right: -100%;
   top: 100px;
   box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
   z-index: 1;
+  transition: all 0.25s ease;
+}
+.cart.show {
+  right: 0;
 }
 @media (max-width: 51.25em) {
   .cart {
@@ -288,6 +301,11 @@ body {
 }
 .cart__close {
   width: 30px;
+}
+@media (hover: hover) {
+  .cart__close:hover {
+    cursor: pointer;
+  }
 }
 .cart__svg {
   fill: #5d6675;
