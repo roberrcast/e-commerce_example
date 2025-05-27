@@ -53,6 +53,29 @@ body {
         }
     }
 
+    &__cart {
+        position: relative;
+        display: inline-block;
+    }
+
+    &__cart-badge {
+        position: absolute;
+        top: -3px;
+        right: -4px;
+        background-color: util.$cartBadge;
+        color: util.$bgColorSecondary;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-style: normal;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
     &__menu {
         @include util.boxy(500px, 25px, 25px, block);
         background-color: util.$bgColorSecondary;
@@ -232,7 +255,8 @@ body {
         @include util.hoverButton(
             util.$bgColor,
             util.$bgColorSecondary,
-            util.$bgColor
+            util.$bgColor,
+            500
         );
     }
 }
@@ -361,6 +385,7 @@ body {
     }
 
     &__buy {
+        font-weight: 600;
         @include util.btn2(
             util.$bgColor,
             util.$bgColorSecondary,
@@ -372,7 +397,8 @@ body {
         @include util.hoverButton(
             util.$bgColorSecondary,
             util.$colorTxtMain,
-            util.$colorTxtMain
+            util.$colorTxtMain,
+            600
         );
     }
 }

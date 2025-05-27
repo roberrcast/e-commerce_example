@@ -2,6 +2,13 @@ const menu = document.querySelector(".header__menu");
 
 const cart = document.querySelector(".cart");
 
+//const cartItems = document.querySelectorAll(".cart__item");
+
+const cartItems = document.getElementsByClassName("cart__item");
+console.log(cartItems.length);
+
+const cartBadge = document.querySelector(".header__cart-badge");
+
 const productsButtons = document.querySelectorAll(".products__button");
 
 const cartBuy = document.querySelector(".cart__button-container");
@@ -66,6 +73,19 @@ cart.addEventListener("click", (event) => {
     }
 });
 
+// Event listeners para abrir y cerrar menu y carrito respectivamente
+const menuIcon = document.querySelector(".menu__button");
+
+const closeMenu = document.querySelector(".header__close");
+
+menuIcon.addEventListener("click", () => {
+    menu.classList.toggle("show");
+});
+
+closeMenu.addEventListener("click", () => {
+    menu.classList.remove("show");
+});
+
 const cartIcon = document.querySelector(".header__cart");
 
 const closeCart = document.querySelector(".cart__close");
@@ -78,14 +98,38 @@ closeCart.addEventListener("click", () => {
     cart.classList.remove("show");
 });
 
-const menuIcon = document.querySelector(".menu__button");
+/* Función con algo que descubrí (mutation observer) */
 
-const closeMenu = document.querySelector(".header__close");
+const cartSum = (cartItems, cartBadge) => {
+    let counter = 0;
 
-menuIcon.addEventListener("click", () => {
-    menu.classList.toggle("show");
+    for (let i = 0; i < cartItems.length; i++) {
+        counter++;
+    }
+
+    cartBadge.innerText = counter;
+};
+
+const cartContainer = document.getElementById("cart");
+
+const badgeContainer = document.getElementById("badge");
+
+const updateBadge = () => {
+    cartSum(cartItems, cartBadge);
+};
+
+const cartObserver = new MutationObserver((mutationList, observer) => {
+    for (const mutation of mutationList) {
+        if (mutation.type === "childList") {
+            updateBadge();
+
+            break;
+        }
+    }
 });
 
-closeMenu.addEventListener("click", () => {
-    menu.classList.remove("show");
-});
+const config = { childList: true };
+
+cartObserver.observe(cartContainer, config);
+
+updateBadge();

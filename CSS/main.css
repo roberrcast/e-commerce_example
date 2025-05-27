@@ -54,6 +54,27 @@ body {
     width: 30px;
   }
 }
+.header__cart {
+  position: relative;
+  display: inline-block;
+}
+.header__cart-badge {
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  background-color: rgba(43, 107, 95, 0.85);
+  color: #fff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+}
 .header__menu {
   width: 500px;
   padding: 25px 25px;
@@ -382,6 +403,7 @@ body {
   margin: 1em 0 0.5em 0;
 }
 .cart__buy {
+  font-weight: 600;
   background-color: #000;
   border: 2px solid #fff;
   color: #fff;
@@ -394,7 +416,7 @@ body {
     background-color: #fff;
     border: 1px solid #5d6675;
     color: #5d6675;
-    font-weight: 500;
+    font-weight: 600;
   }
 }
 

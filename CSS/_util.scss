@@ -8,6 +8,7 @@ $colorTxtHover: #8b95a6; //Var added
 $mainWidth: 100%;
 $borderColor: #c3c6c7f2;
 $borderColor2: #f1f1f1;
+$cartBadge: rgba(43, 107, 95, 0.85);
 
 @mixin boxy($width, $padd1, $padd2, $display) {
     width: $width;
@@ -134,14 +135,14 @@ $borderColor2: #f1f1f1;
     }
 }
 
-@mixin hoverButton($bg, $color, $borderColor) {
+@mixin hoverButton($bg, $color, $borderColor, $weight) {
     @media (hover: hover) {
         &:hover {
             cursor: pointer;
             background-color: $bg;
             border: 1px solid $borderColor;
             color: $color;
-            font-weight: 500;
+            font-weight: $weight;
         }
     }
 }
