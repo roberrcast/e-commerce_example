@@ -1,0 +1,65 @@
+const productsButtons = document.querySelectorAll(".products__button");
+
+const cart = document.querySelector(".cart");
+
+const cartBuy = document.querySelector(".cart__button-container");
+
+//Función para añadir elementos al carrito de compras
+productsButtons.forEach((product) => {
+    product.addEventListener("click", () => {
+        //Seleccionar el elemento padre para después los hijos (img, txt, price, etc.)
+        productParent = product.parentElement;
+        primeImg = productParent.children[0];
+        primeTitle = productParent.children[1];
+        primeTxt = productParent.children[2];
+
+        //Crear el elemento para remover
+        const removeItem = document.createElement("i");
+        removeItem.classList.add("cart__icon-container");
+        const deleteIcon = document.createElement("img");
+        deleteIcon.src = "img/trash_bin.svg";
+        deleteIcon.classList.add("cart__icon-delete");
+        removeItem.appendChild(deleteIcon);
+
+        //Clonar los elementos deseados para añadirlos al nuevo elemento en el carrito
+        cartImg = primeImg.cloneNode(true);
+        cartTitle = primeTitle.cloneNode(true);
+        cartPrice = primeTxt.cloneNode(true);
+
+        //Quitar las clases para evitar conflictos
+        cartImg.classList.remove("products__img");
+        cartTitle.classList.remove("products__title");
+
+        //Añadir las nuevas clases a los nuevos elementos
+        cartImg.classList.add("cart__img");
+        cartTitle.classList.add("cart__txt");
+        cartPrice.classList.add("cart__txt--price");
+
+        //Crear un div para añadirle los nuevos elementos
+        newCartItem = document.createElement("div");
+
+        //Añadir clase al nuevo elemento div en el carrito para coincidir con el estilo
+        newCartItem.classList.add("cart__item");
+
+        //Pegar los elementos en el nuevo div
+        newCartItem.append(cartImg, cartTitle, cartPrice, removeItem);
+
+        //Insertar el nuevo elemento al final antes del botón de compra
+        cart.insertBefore(newCartItem, cartBuy);
+    });
+});
+
+//Event listener para el icono de borrado en la forma de una event delegation (lo leí de aquí: https://www.freecodecamp.org/news/event-delegation-javascript/)
+cart.addEventListener("click", (event) => {
+    // Esto encuentra el ancestro más cercano que sea un icono para remover
+    const removeButton = event.target.closest(".cart__icon-container");
+
+    // Si un botón para remover, o algo dentro de él, recibió un click...
+    if (removeButton) {
+        // Localiza al cart item que sea su padre y lo quita
+        const cartItem = removeButton.closest(".cart__item");
+        if (cartItem) {
+            cartItem.remove();
+        }
+    }
+});

@@ -211,11 +211,14 @@ body {
     }
 
     &__button {
-        background-color: util.$bgColorSecondary;
-        border: 2px solid util.$colorTxtMain;
-        color: util.$colorTxtMain;
-        padding: 8px;
-        transition: all 0.3s ease-out;
+        @include util.btn2(
+            util.$bgColorSecondary,
+            util.$colorTxtMain,
+            util.$colorTxtMain,
+            8px,
+            8px
+        );
+
         @include util.hoverButton(
             util.$bgColor,
             util.$bgColorSecondary,
@@ -227,10 +230,12 @@ body {
 .cart {
     //Esto es para el carrito de compras que se encuentra escondido hacia la izquierda
     @include util.boxy(500px, 25px, 25px, block);
+    //flex-direction: column;
+    @include util.scrollable(100%);
     background-color: util.$bgColorSecondary;
-    height: 100%;
+    height: 650px; //650px seems to work
     position: fixed;
-    right: -100%;
+    right: 0;
     top: 100px;
     @include util.boxShadow(-19px, -1px, 22px, -15px);
     z-index: 1;
@@ -273,7 +278,7 @@ body {
 
     &__item {
         @include util.boxy(100%, 15px, 15px, flex);
-        border-bottom: 1px solid util.$borderClr;
+        border-bottom: 1px solid util.$borderColor;
         justify-content: space-between;
         align-items: center;
 
@@ -294,6 +299,15 @@ body {
     }
 
     &__txt {
+        font-size: 15px;
+        font-weight: 300;
+        width: 125px;
+        display: -webkit-box; // Estas líneas "webkit" son para que el texto se mantenga en una línea
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
         @include queries.respond("small2") {
             margin: 0;
         }
@@ -314,6 +328,31 @@ body {
 
     &__icon-delete {
         width: 100%;
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button-container {
+        margin: 1em 0 0.5em 0;
+    }
+
+    &__buy {
+        @include util.btn2(
+            util.$bgColor,
+            util.$bgColorSecondary,
+            util.$bgColorSecondary,
+            8px,
+            10px
+        );
+
+        @include util.hoverButton(
+            util.$bgColorSecondary,
+            util.$colorTxtMain,
+            util.$colorTxtMain
+        );
     }
 }
 

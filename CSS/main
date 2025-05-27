@@ -241,7 +241,7 @@ body {
   background-color: #fff;
   border: 2px solid #5d6675;
   color: #5d6675;
-  padding: 8px 8px;
+  padding: 8px;
   transition: all 0.3s ease-out;
 }
 @media (hover: hover) {
@@ -259,10 +259,11 @@ body {
   padding: 25px 25px;
   display: block;
   box-sizing: border-box;
+  flex-direction: column;
   height: 100%;
   overflow: auto;
   background-color: #fff;
-  height: 650px;
+  height: 100%;
   position: fixed;
   right: 0;
   top: 100px;
@@ -325,17 +326,6 @@ body {
     width: 100px;
   }
 }
-.cart__txt {
-  font-size: 15px;
-  font-weight: 300;
-  width: 125px;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-}
 @media (max-width: 480px) {
   .cart__txt {
     margin: 0;
@@ -356,28 +346,8 @@ body {
 .cart__icon-delete {
   width: 100%;
 }
-.cart__button-container {
-  display: flex;
-  justify-content: center;
-}
-.cart__button-container {
-  margin: 1em 0 0.5em 0;
-}
 .cart__buy {
-  background-color: #000;
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 8px 10px;
-  transition: all 0.3s ease-out;
-}
-@media (hover: hover) {
-  .cart__buy:hover {
-    cursor: pointer;
-    background-color: #fff;
-    border: 1px solid #5d6675;
-    color: #5d6675;
-    font-weight: 500;
-  }
+  margin-top: 2em;
 }
 
 .footer {
@@ -476,4 +446,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main.map */

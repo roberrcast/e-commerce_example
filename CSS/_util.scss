@@ -5,15 +5,20 @@ $bgColorSecondary: #fff;
 $colorTxtMain: #5d6675; //Change made from #999
 $colorTxtSecondary: #1f1f1f; //Change made from #fff
 $colorTxtHover: #8b95a6; //Var added
-$borderClr: #333;
 $mainWidth: 100%;
 $borderColor: #c3c6c7f2;
+$borderColor2: #f1f1f1;
 
 @mixin boxy($width, $padd1, $padd2, $display) {
     width: $width;
     padding: $padd1 $padd2;
     display: $display;
     box-sizing: border-box;
+}
+
+@mixin scrollable($height) {
+    height: $height;
+    overflow: auto;
 }
 
 @mixin gridProducts($gridColumns) {
@@ -84,6 +89,14 @@ $borderColor: #c3c6c7f2;
             cursor: pointer;
         }
     }
+}
+
+@mixin btn2($bg, $borderColor, $txtColor, $pad1, $pad2) {
+    background-color: $bg;
+    border: 2px solid $borderColor;
+    color: $txtColor;
+    padding: $pad1 $pad2;
+    transition: all 0.3s ease-out;
 }
 
 @mixin boxShadow($x, $y, $blur, $spread) {
