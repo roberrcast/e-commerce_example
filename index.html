@@ -10,12 +10,12 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="CSS/main.css" />
-
+        <script src="js/functions.js" defer></script>
         <title>Tienda British Museum</title>
     </head>
     <body>
         <header class="header">
-            <i class="header__icon-container"
+            <i class="header__icon-container menu__button"
                 ><img class="header__icon" src="img/menu.svg" alt="Icono Menu"
             /></i>
             <img
@@ -23,18 +23,20 @@
                 src="img/british-museum.svg"
                 alt="logo british museum"
             />
-            <i class="header__icon-container"
+            <i class="header__icon-container header__cart"
                 ><img
                     class="header__icon"
                     src="img/cart.svg"
                     atl="Icono Carrito"
-            /></i>
+                />
+                <span id="badge" class="header__cart-badge">5</span>
+            </i>
 
             <section class="header__menu">
                 <div class="header__util-container">
                     <h2 class="header__title">Menu</h2>
 
-                    <i class="header__close close">
+                    <i class="header__close">
                         <svg
                             class="header__svg"
                             viewBox="0 0 24 24"
@@ -166,14 +168,10 @@
                 </article>
             </section>
 
-            <section class="cart">
+            <section id="cart" class="cart">
                 <div class="cart__util">
-                    <i class="header__close close">
-                        <svg
-                            class="header__svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                        >
+                    <i class="cart__close">
+                        <svg class="cart__svg" viewBox="0 0 24 24" fill="none">
                             <g stroke-width="0" />
                             <g stroke-linecap="round" stroke-linejoin="round" />
                             <path
@@ -266,6 +264,10 @@
                             src="img/trash_bin.svg"
                             alt="Icono Quitar"
                     /></i>
+                </div>
+
+                <div class="cart__button-container">
+                    <button class="cart__buy">Comprar</button>
                 </div>
             </section>
         </main>
