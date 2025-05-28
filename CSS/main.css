@@ -332,7 +332,6 @@ body {
   fill: #5d6675;
 }
 .cart__title {
-  font-weight: 600;
   box-sizing: border-box;
 }
 @media (max-width: 480px) {

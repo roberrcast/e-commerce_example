@@ -100,6 +100,7 @@ closeCart.addEventListener("click", () => {
 
 /* Función con algo que descubrí (mutation observer) */
 
+// Función para contar los elementos dentro del carrito de compras
 const cartSum = (cartItems, cartBadge) => {
     let counter = 0;
 
@@ -110,26 +111,31 @@ const cartSum = (cartItems, cartBadge) => {
     cartBadge.innerText = counter;
 };
 
+// Para el Mutation observer API, se le añade ID al objeto que se quiere observar y mutar
 const cartContainer = document.getElementById("cart");
 
-const badgeContainer = document.getElementById("badge");
-
+// Esta es la función para actualizar el badge
 const updateBadge = () => {
     cartSum(cartItems, cartBadge);
 };
 
+// El mutation observer permite observar mutaciones o cambios en el DOM (como adiciones o restas),
+// y toma un 'callback function' como argumento. Este callback se ejecuta cada vez que una mutación o cambio
+// se detecta en el DOM que se está observando.
 const cartObserver = new MutationObserver((mutationList, observer) => {
     for (const mutation of mutationList) {
         if (mutation.type === "childList") {
-            updateBadge();
+            updateBadge(); // Aquí se ejecuta la función para añadir o restar al badge
 
             break;
         }
     }
 });
 
+// Esto le dice al mutation observer qué tipos de cambio observar en este caso el child list (añadir o remover)
 const config = { childList: true };
 
+// Esto le dice al código que contenedor o elemento del DOM observar y qué hacer con la función
 cartObserver.observe(cartContainer, config);
 
 updateBadge();
