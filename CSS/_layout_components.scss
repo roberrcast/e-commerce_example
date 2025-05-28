@@ -77,7 +77,7 @@ body {
     }
 
     &__menu {
-        @include util.boxy(500px, 25px, 25px, block);
+        @include util.boxy(200px, 25px, 25px, block);
         background-color: util.$bgColorSecondary;
         height: 100%;
         position: fixed;
