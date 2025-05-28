@@ -312,7 +312,6 @@ body {
     }
 
     &__title {
-        font-weight: 600;
         box-sizing: border-box;
 
         @include queries.respond("small2") {
