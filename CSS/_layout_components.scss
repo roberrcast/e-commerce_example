@@ -81,7 +81,7 @@ body {
         background-color: util.$bgColorSecondary;
         height: 100%;
         position: fixed;
-        left: -100%;
+        left: -140%;
         top: 100px;
         @include util.boxShadow(19px, -1px, 22px, -15px);
         z-index: 1;
