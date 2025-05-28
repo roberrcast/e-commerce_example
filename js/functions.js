@@ -111,7 +111,7 @@ const cartSum = (cartItems, cartBadge) => {
     cartBadge.innerText = counter;
 };
 
-// Para el Mutation observer API, se le añaden ID al objeto que se quiere observar y mutar
+// Para el Mutation observer API, se le añade ID al objeto que se quiere observar y mutar
 const cartContainer = document.getElementById("cart");
 
 // Esta es la función para actualizar el badge
@@ -132,10 +132,10 @@ const cartObserver = new MutationObserver((mutationList, observer) => {
     }
 });
 
-// Esto le dice al mutation observer qué tipos de cambio observar
+// Esto le dice al mutation observer qué tipos de cambio observar en este caso el child list (añadir o remover)
 const config = { childList: true };
 
-// Esto le dice al código que contener o elemento del DOM observar y qué hacer con la función
+// Esto le dice al código que contenedor o elemento del DOM observar y qué hacer con la función
 cartObserver.observe(cartContainer, config);
 
 updateBadge();
