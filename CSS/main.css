@@ -293,12 +293,17 @@ body {
   overflow: auto;
   background-color: #fff;
   height: 650px;
+  z-index: 1;
   position: fixed;
   right: -100%;
   top: 100px;
   box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
-  z-index: 1;
   transition: all 0.25s ease;
+}
+@supports (-webkit-box-reflect: below) {
+  .cart {
+    height: 715px;
+  }
 }
 .cart.show {
   right: 0;
