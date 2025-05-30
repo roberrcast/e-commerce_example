@@ -32,7 +32,7 @@
     }
 
     @if ($breakpoint == "height2") {
-        @media only screen and (min-height: 1000px) and (max-height: 1430px) {
+        @media only screen and (min-height: 1300px) and (max-height: 1430px) {
             @content;
         }
     }
