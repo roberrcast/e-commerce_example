@@ -32,7 +32,7 @@
     }
 
     @if ($breakpoint == "height") {
-        @media (max-height: 142.33px) {
+        @media (max-height: 1421.33px) {
             @content;
         }
     }
