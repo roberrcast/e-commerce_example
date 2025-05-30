@@ -305,6 +305,11 @@ body {
     height: 715px;
   }
 }
+@media (max-height: 142.33px) {
+  .cart {
+    height: 500px;
+  }
+}
 .cart.show {
   right: 0;
 }

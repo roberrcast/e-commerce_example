@@ -278,6 +278,10 @@ body {
         height: 715px;
     }
 
+    @include queries.respond("height") {
+        height: 500px;
+    }
+
     &.show {
         right: 0;
     }
