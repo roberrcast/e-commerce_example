@@ -274,6 +274,11 @@ body {
     top: 100px;
     @include util.boxShadow(-19px, -1px, 22px, -15px);
     transition: all 0.25s ease;
+
+    @include queries.respond("height") {
+        height: 500px;
+    }
+
     @supports (-webkit-box-reflect: below) {
         height: 715px;
     }

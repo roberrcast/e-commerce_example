@@ -30,4 +30,10 @@
             @content;
         }
     }
+
+    @if ($breakpoint == "height") {
+        @media only screen and (min-height: 100px) and (max-height: 1430px) {
+            @content;
+        }
+    }
 }
