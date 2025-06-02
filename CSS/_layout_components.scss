@@ -263,13 +263,12 @@ body {
 
 .cart {
     //Esto es para el carrito de compras que se encuentra escondido hacia la izquierda
+    position: fixed;
     @include util.boxy(500px, 25px, 25px, block);
-    //flex-direction: column;
     @include util.scrollable(100%);
     background-color: util.$bgColorSecondary;
-    height: 650px; //650px seems to work
-    z-index: 1;
-    position: fixed;
+    height: 650px;
+    z-index: 1000;
     right: -100%;
     top: 100px;
     @include util.boxShadow(-19px, -1px, 22px, -15px);
@@ -278,7 +277,7 @@ body {
     //     height: 850px;
     // }
 
-    @include queries.respond("height1") {
+    @include queries.respond("height") {
         height: 500px;
     }
 
@@ -299,10 +298,11 @@ body {
     @include queries.respond("small2") {
         //media query 480px
         width: 100%;
-        box-shadow: none;
+        //box-shadow: none;
     }
 
     &__util {
+        flex-shrink: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;

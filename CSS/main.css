@@ -285,6 +285,7 @@ body {
 }
 
 .cart {
+  position: fixed;
   width: 500px;
   padding: 25px 25px;
   display: block;
@@ -293,12 +294,16 @@ body {
   overflow: auto;
   background-color: #fff;
   height: 650px;
-  z-index: 1;
-  position: fixed;
+  z-index: 1000;
   right: -100%;
   top: 100px;
   box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
   transition: all 0.25s ease;
+}
+@media screen and (height: 1440px) {
+  .cart {
+    height: 500px;
+  }
 }
 @supports (-webkit-box-reflect: below) {
   .cart {
@@ -317,10 +322,10 @@ body {
 @media (max-width: 480px) {
   .cart {
     width: 100%;
-    box-shadow: none;
   }
 }
 .cart__util {
+  flex-shrink: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
