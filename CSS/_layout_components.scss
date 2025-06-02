@@ -265,21 +265,14 @@ body {
     //Esto es para el carrito de compras que se encuentra escondido hacia la izquierda
     position: fixed;
     @include util.boxy(500px, 25px, 25px, block);
-    @include util.scrollable(100%);
+    @include util.scrollable(100%); // Contiene el height (100vh)
     background-color: util.$bgColorSecondary;
-    height: 650px;
+    //height: 650px;
     z-index: 1000;
     right: -100%;
     top: 100px;
     @include util.boxShadow(-19px, -1px, 22px, -15px);
     transition: all 0.25s ease;
-    // @include queries.respond("small2") {
-    //     height: 850px;
-    // }
-
-    @include queries.respond("height") {
-        height: 500px;
-    }
 
     @supports (-webkit-box-reflect: below) {
         height: 715px;
@@ -302,6 +295,11 @@ body {
     }
 
     &__util {
+        position: -webkit-sticky; // Para safari
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background-color: util.$cartStickyBg;
         flex-shrink: 0;
         display: flex;
         justify-content: space-between;
@@ -385,12 +383,18 @@ body {
         width: 100%;
     }
 
-    &__button-container {
-        display: flex;
-        justify-content: center;
+    &__item:nth-last-child(2) {
+        margin-bottom: 100px;
     }
 
     &__button-container {
+        position: -webkit-sticky; // Para safari
+        position: sticky;
+        z-index: 2;
+        bottom: 90px;
+        background-color: util.$cartStickyBg;
+        display: flex;
+        justify-content: center;
         margin: 1em 0 0.5em 0;
     }
 

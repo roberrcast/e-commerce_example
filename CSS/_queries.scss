@@ -30,10 +30,4 @@
             @content;
         }
     }
-
-    @if ($breakpoint == "height") {
-        @media screen and (height: 1440px) {
-            @content;
-        }
-    }
 }

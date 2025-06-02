@@ -290,7 +290,7 @@ body {
   padding: 25px 25px;
   display: block;
   box-sizing: border-box;
-  height: 100%;
+  height: 100vh;
   overflow: auto;
   background-color: #fff;
   z-index: 1000;
@@ -298,6 +298,11 @@ body {
   top: 100px;
   box-shadow: -19px -1px 22px -15px rgba(0, 0, 0, 0.3);
   transition: all 0.25s ease;
+}
+@media only screen and (min-height: 1000px) and (max-height: 1500px) {
+  .cart {
+    height: 500px;
+  }
 }
 @supports (-webkit-box-reflect: below) {
   .cart {
@@ -321,8 +326,6 @@ body {
 .cart__util {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  z-index: 2;
   background-color: rgba(255, 255, 255, 0.8);
   flex-shrink: 0;
   display: flex;
@@ -403,17 +406,11 @@ body {
 .cart__icon-delete {
   width: 100%;
 }
-.cart__item:nth-last-child(2) {
-  margin-bottom: 100px;
-}
 .cart__button-container {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 2;
-  bottom: 90px;
-  background-color: rgba(255, 255, 255, 0.8);
   display: flex;
   justify-content: center;
+}
+.cart__button-container {
   margin: 1em 0 0.5em 0;
 }
 .cart__buy {
@@ -530,4 +527,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main.csss.map */
