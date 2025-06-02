@@ -2,8 +2,6 @@ const menu = document.querySelector(".header__menu");
 
 const cart = document.querySelector(".cart");
 
-//const cartItems = document.querySelectorAll(".cart__item");
-
 const cartItems = document.getElementsByClassName("cart__item");
 console.log(cartItems.length);
 
